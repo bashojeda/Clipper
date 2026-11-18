@@ -1,0 +1,30 @@
+# Virtual environments
+.venv/
+venv/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python cache and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated media and model files
+outputs/
+*.mp4
+*.mkv
+*.mov
+*.wav
+*.srt
+*.vtt
+models/
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
