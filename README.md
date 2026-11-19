@@ -21,7 +21,25 @@ python -m pip install -e ".[dev]"
 
 Si la política de PowerShell impide activar el entorno, se puede invocar directamente `.\.venv\Scripts\python.exe` en lugar de `python`.
 
-Copia `.env.example` como `.env` y agrega tu clave de Anthropic. No subas `.env` a Git.
+Copia `.env.example` como `.env`; agrega tu clave y un identificador de modelo Anthropic habilitado para tu cuenta. No subas `.env` a Git. Si la terminal no encuentra FFmpeg por `PATH`, también puedes asignar su ruta completa a `FFMPEG_PATH`.
+
+## Ejecutar la CLI
+
+```powershell
+clipper .\ruta\al\video.mp4 --output .\outputs --language es
+```
+
+La primera ejecución descarga el modelo de faster-whisper y puede tardar. La transcripción de audio se hace localmente; el texto transcrito y sus tiempos se envían a Anthropic para seleccionar los momentos. Los clips se generan en vertical 9:16 y se guardan en la carpeta indicada. Para consultar opciones:
+
+```powershell
+clipper --help
+```
+
+## Pruebas
+
+```powershell
+python -m pytest -q
+```
 
 ## Estructura
 
@@ -29,4 +47,4 @@ Copia `.env.example` como `.env` y agrega tu clave de Anthropic. No subas `.env`
 - `tests/`: pruebas automatizadas.
 - `pyproject.toml`: metadatos y dependencias.
 
-La forma de ejecutar la CLI se añadirá junto con su implementación.
+La aplicación tiene una CLI y no incluye todavía API web ni frontend.

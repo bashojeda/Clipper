@@ -15,6 +15,9 @@ dependencies = [
     "python-dotenv>=1.2.4,<2",
 ]
 
+[project.scripts]
+clipper = "clipper.cli:main"
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.3,<9",
